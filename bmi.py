@@ -10,11 +10,15 @@ st.subheader('HEIGHT')
 height = st.number_input("Enter Your height")
 height_unit = st.selectbox("Unit", ('feet', 'meter'))
 
+if height_unit == 'feet':
+    inch = st.number_input("Inches")
+
 st.write(' ')
 
 def bmi(weight, weight_unit, height, height_unit):
     if height_unit == 'feet':
-        height = height/3.28
+        height = height * 12 + inch
+        height = height/39.37
     if weight_unit == 'pound':
         weight = weight * 0.45359237
     bmi_value = weight/(height * height)
